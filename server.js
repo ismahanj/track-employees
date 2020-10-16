@@ -5,7 +5,7 @@ const inquirer = require("inquirer")
 const connection = mysql.createConnection({
     host: "localhost",
 
-    port: 3306,
+    port: process.env.Port || 3306,
 
     user: "root",
 
@@ -114,9 +114,9 @@ function addEmployee() {
 })
 }
 function addRole (){
-    var query = "SELECT department.id, department.title, roles.department_id"; 
-            query += "FROM department INNER JOIN roles ON (roles.department_id = department.id AND department.title)"; 
-            query += "= roles.department_id WHERE (roles.department_id = ?) ORDER BY department.id AND department.title"; 
+    // var query = "SELECT department.id, department.title, roles.department_id"; 
+    //         query += "FROM department INNER JOIN roles ON (roles.department_id = department.id AND department.title)"; 
+    //         query += "= roles.department_id WHERE (roles.department_id = ?) ORDER BY department.id AND department.title"; 
 
     connection.query("SELECT * FROM department", function (err, data) {
         if (err) throw err
@@ -146,7 +146,7 @@ function addRole (){
                 },
             ]).then(function (answers) {
             
-        connection.query(query, "INSERT INTO roles SET ?", {
+        connection.query("INSERT INTO roles SET ?", {
             title: answers.title,
             salary: answers.salary,
             department_id: answers.depId
