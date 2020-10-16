@@ -23,4 +23,4 @@
 
 # Demo 
     demonstration of the working app
-![app demo](https://github.com/ismahanj/track-employees/files/5388978/Screen.Recording.2020-10-15.at.8.07.37.PM.pdf)
+![app demo](https://www.youtube.com/watch?v=-XTIy1UUT8A)
